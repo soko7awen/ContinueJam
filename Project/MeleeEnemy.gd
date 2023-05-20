@@ -22,8 +22,8 @@ func _process(delta):
 		velocity.y += gravity * delta;
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
-			if(collision.get_collider().name == "PlayerTwo"):
+			if(collision.get_collider.name == "PlayerTwo"):
 				pass
-			elif(collision.get_normal().x == 1 && !facingRight || collision.get_normal().x == -1 && facingRight):
+			else if(collision.get_normal().x == 1 && !facingRight || collision.get_normal().x == -1 && facingRight):
 				facingRight = !facingRight
 	move_and_slide()
