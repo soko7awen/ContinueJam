@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=10 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
@@ -11,8 +11,14 @@ size = Vector2(399, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe3wb"]
 size = Vector2(500, 71.9379)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huaq7"]
+size = Vector2(24, 24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
 size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eljto"]
+size = Vector2(30, 30)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1g8sp")
@@ -63,7 +69,7 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOne"]
 position = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_bd06c")
+shape = SubResource("RectangleShape2D_huaq7")
 
 [node name="ColorRect" type="ColorRect" parent="PlayerOne"]
 offset_right = 24.0
@@ -82,13 +88,13 @@ shape = SubResource("RectangleShape2D_bd06c")
 offset_right = 24.0
 offset_bottom = 24.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Enemy" type="CharacterBody2D" parent="."]
 position = Vector2(311, -52)
 script = ExtResource("4_jbvfw")
 
-[node name="MeleeEnemy" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="MeleeEnemy" type="AnimatedSprite2D" parent="Enemy"]
 
-[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+[node name="ColorRect" type="ColorRect" parent="Enemy"]
 offset_left = -15.0
 offset_top = -15.0
 offset_right = 15.0
@@ -96,5 +102,5 @@ offset_bottom = 15.0
 color = Color(0.717647, 0, 0, 0.713726)
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_rtg0i")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource("RectangleShape2D_eljto")
