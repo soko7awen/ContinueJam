@@ -16,6 +16,7 @@ size = Vector2(40, 40)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(579, 517)
+scale = Vector2(1, 0.6)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
@@ -77,7 +78,7 @@ offset_bottom = -5.0
 color = Color(0.282353, 0.933333, 0.290196, 1)
 
 [node name="PlayerOne" type="CharacterBody2D" parent="."]
-position = Vector2(572, 441)
+position = Vector2(565, 455)
 script = ExtResource("1_0mrm4")
 metadata/_edit_group_ = true
 
@@ -90,7 +91,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PlayerTwo" type="CharacterBody2D" parent="."]
-position = Vector2(568, 1004)
+position = Vector2(550, 1009)
 script = ExtResource("2_saw52")
 metadata/_edit_group_ = true
 
