@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=12 format=3 uid="uid://dfnkno55vqf0m"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
-[ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://image.png" id="2_35238"]
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="2_saw52"]
+[ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_t8cum"]
 [ext_resource type="Script" path="res://MeleeEnemy.gd" id="4_jbvfw"]
+[ext_resource type="Texture2D" uid="uid://puxxnpydokf7" path="res://assets/heart.png" id="6_b4b83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02a8h"]
 size = Vector2(400, 24)
@@ -29,7 +30,7 @@ script = ExtResource("1_1g8sp")
 [node name="Image" type="Sprite2D" parent="SubViewport"]
 visible = false
 position = Vector2(200, 250)
-texture = ExtResource("2_35238")
+texture = ExtResource("2_t8cum")
 
 [node name="Ground" type="ColorRect" parent="SubViewport"]
 offset_top = 226.0
@@ -123,8 +124,29 @@ offset_left = -15.0
 offset_top = -15.0
 offset_right = 15.0
 offset_bottom = 15.0
-color = Color(0.717647, 0, 0, 0.713726)
+color = Color(0.717647, 0.160784, 0.160784, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/MeleeEnemy"]
 shape = SubResource("RectangleShape2D_rtg0i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart1" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
+texture_filter = 1
+position = Vector2(14, 488)
+texture = ExtResource("6_b4b83")
+
+[node name="Heart2" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
+texture_filter = 1
+position = Vector2(40, 488)
+texture = ExtResource("6_b4b83")
+
+[node name="Heart3" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
+texture_filter = 1
+position = Vector2(66, 488)
+texture = ExtResource("6_b4b83")
