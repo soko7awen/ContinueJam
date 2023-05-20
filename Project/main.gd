@@ -8,8 +8,6 @@ var xMax
 func _ready():
 	xMin = get_viewport_rect().size.x / 16
 	xMax = get_viewport_rect().size.x - 20
-	print(xMin)
-	print(xMax)
 
 func _physics_process(_delta):
 	if(rng.randf_range(0.0, 100.0) <= 0.75):
