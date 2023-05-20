@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed = 4
+const speed = 200
 
 var isFalling = true
 var facingRight = false
@@ -16,14 +16,12 @@ func _process(delta):
 			isFalling = false
 	else:
 		if(facingRight):
-			velocity.x = 200
+			velocity.x = speed
 		else:
-			velocity.x = -200
+			velocity.x = -speed
 		velocity.y += gravity * delta;
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
-			if(collision.get_collider().name == "PlayerTwo"):
-				pass
-			elif(collision.get_normal().x == 1 && !facingRight || collision.get_normal().x == -1 && facingRight):
+			if(collision.get_normal().x == 1 && !facingRight || collision.get_normal().x == -1 && facingRight):
 				facingRight = !facingRight
 	move_and_slide()

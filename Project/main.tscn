@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfnkno55vqf0m"]
+[gd_scene load_steps=12 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
@@ -140,13 +140,16 @@ offset_bottom = 40.0
 texture_filter = 1
 position = Vector2(14, 488)
 texture = ExtResource("6_b4b83")
+hframes = 2
 
 [node name="Heart2" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
 texture_filter = 1
 position = Vector2(40, 488)
 texture = ExtResource("6_b4b83")
+hframes = 2
 
 [node name="Heart3" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
 texture_filter = 1
 position = Vector2(66, 488)
 texture = ExtResource("6_b4b83")
+hframes = 2
