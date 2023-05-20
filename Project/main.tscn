@@ -5,78 +5,78 @@
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="2_saw52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02a8h"]
-size = Vector2(540, 24)
+size = Vector2(399, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe3wb"]
-size = Vector2(810, 71.7496)
+size = Vector2(500, 71.9379)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
-size = Vector2(30, 30)
+size = Vector2(24, 24)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1g8sp")
 
 [node name="Ground" type="ColorRect" parent="."]
-offset_top = 383.0
-offset_right = 539.0
-offset_bottom = 407.0
+offset_top = 228.0
+offset_right = 400.0
+offset_bottom = 252.0
 color = Color(0.282353, 0.933333, 0.290196, 1)
 
 [node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(305, 825)
+position = Vector2(201, 489)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-position = Vector2(-35, -27)
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_02a8h")
 
 [node name="Ground2" type="ColorRect" parent="Ground2"]
-offset_left = -305.0
-offset_top = -39.0
-offset_right = 235.0
-offset_bottom = -15.0
+offset_left = -201.0
+offset_top = -13.0
+offset_right = 199.0
+offset_bottom = 11.0
 color = Color(0.282353, 0.933333, 0.290196, 1)
 
 [node name="Wall1" type="StaticBody2D" parent="."]
-position = Vector2(5, 544)
+position = Vector2(-36, 240)
 rotation = -1.5708
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
-position = Vector2(139, -40.8758)
+position = Vector2(-10.0001, 0.0621643)
 shape = SubResource("RectangleShape2D_oe3wb")
 
 [node name="Wall2" type="StaticBody2D" parent="."]
-position = Vector2(617, 387)
+position = Vector2(436, 250)
 rotation = -1.5708
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
-position = Vector2(-17.9998, -41.2504)
+position = Vector2(9.15527e-05, -0.0319519)
 shape = SubResource("RectangleShape2D_oe3wb")
 
 [node name="PlayerOne" type="CharacterBody2D" parent="."]
-position = Vector2(255, 353)
+position = Vector2(190, 204)
 script = ExtResource("1_0mrm4")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOne"]
-position = Vector2(15, 15)
+position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_bd06c")
 
 [node name="ColorRect" type="ColorRect" parent="PlayerOne"]
-offset_right = 30.0
-offset_bottom = 30.0
+offset_right = 24.0
+offset_bottom = 24.0
 
 [node name="PlayerTwo" type="CharacterBody2D" parent="."]
-position = Vector2(254, 756)
+position = Vector2(190, 452)
 script = ExtResource("2_saw52")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwo"]
-position = Vector2(15, 15)
+position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_bd06c")
 
 [node name="ColorRect" type="ColorRect" parent="PlayerTwo"]
-offset_right = 30.0
-offset_bottom = 30.0
+offset_right = 24.0
+offset_bottom = 24.0
