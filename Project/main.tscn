@@ -85,13 +85,13 @@ shape = SubResource("RectangleShape2D_bd06c")
 offset_right = 30.0
 offset_bottom = 30.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="MeleeEnemy" type="CharacterBody2D" parent="."]
 position = Vector2(311, -52)
 script = ExtResource("4_jbvfw")
 
-[node name="MeleeEnemy" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="MeleeEnemy"]
 
-[node name="ColorRect" type="ColorRect" parent="CharacterBody2D"]
+[node name="ColorRect" type="ColorRect" parent="MeleeEnemy"]
 offset_left = -15.0
 offset_top = -15.0
 offset_right = 15.0
@@ -99,5 +99,5 @@ offset_bottom = 15.0
 color = Color(0.717647, 0, 0, 0.713726)
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeEnemy"]
 shape = SubResource("RectangleShape2D_rtg0i")
