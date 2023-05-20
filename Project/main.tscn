@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=11 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
@@ -13,6 +13,9 @@ size = Vector2(400, 24)
 size = Vector2(500, 71.7496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqi3"]
 size = Vector2(30, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtg0i"]
@@ -91,13 +94,15 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwo"]
 position = Vector2(15, 15)
-shape = SubResource("RectangleShape2D_bd06c")
+shape = SubResource("RectangleShape2D_bdqi3")
 
 [node name="Area2D" type="Area2D" parent="PlayerTwo"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwo/Area2D"]
 position = Vector2(15, 15)
-shape = SubResource("RectangleShape2D_bd06c")
+shape = SubResource("RectangleShape2D_bdqi3")
 
 [node name="ColorRect" type="ColorRect" parent="PlayerTwo"]
 offset_right = 30.0

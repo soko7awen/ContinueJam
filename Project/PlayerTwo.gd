@@ -18,5 +18,12 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		
+	for i in $Area2D.get_overlapping_bodies():
+		if(i.name == "MeleeEnemy"):
+			takeDamage()
+		
 	move_and_slide()
+	
+func takeDamage():
+	pass
