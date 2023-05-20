@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	if(isFalling):
-		velocity.y = 400
+		velocity.y = speed
 		if(is_on_floor()):
 			isFalling = false
 	else:

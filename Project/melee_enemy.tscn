@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2cfj8yk4f3c4"]
+
+[ext_resource type="Script" path="res://MeleeEnemy.gd" id="1_2ydss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtg0i"]
+size = Vector2(30, 30)
+
+[node name="MeleeEnemy" type="CharacterBody2D"]
+position = Vector2(311, -52)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2ydss")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+color = Color(0.717647, 0.160784, 0.160784, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rtg0i")
