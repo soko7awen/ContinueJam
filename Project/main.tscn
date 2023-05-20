@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=6 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="2_saw52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sekrc"]
 size = Vector2(1160, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oe3wb"]
+size = Vector2(1160, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
 size = Vector2(40, 40)
@@ -27,17 +30,50 @@ offset_bottom = 37.0
 color = Color(0.282353, 0.933333, 0.290196, 1)
 
 [node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(577, 1121)
+position = Vector2(573, 1127)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-shape = SubResource("RectangleShape2D_sekrc")
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_oe3wb")
 
 [node name="Ground" type="ColorRect" parent="Ground2"]
 offset_left = -580.0
-offset_top = -78.5
+offset_top = -78.0
 offset_right = 580.0
-offset_bottom = 78.5
+offset_bottom = -5.0
+color = Color(0.282353, 0.933333, 0.290196, 1)
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+position = Vector2(3, 547)
+rotation = -1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_oe3wb")
+
+[node name="Ground" type="ColorRect" parent="Wall1"]
+offset_left = -580.0
+offset_top = -78.0
+offset_right = 580.0
+offset_bottom = -5.0
+color = Color(0.282353, 0.933333, 0.290196, 1)
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(1231, 543)
+rotation = -1.5708
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_oe3wb")
+
+[node name="Ground" type="ColorRect" parent="Wall2"]
+offset_left = -580.0
+offset_top = -78.0
+offset_right = 580.0
+offset_bottom = -5.0
 color = Color(0.282353, 0.933333, 0.290196, 1)
 
 [node name="PlayerOne" type="CharacterBody2D" parent="."]
@@ -54,7 +90,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="PlayerTwo" type="CharacterBody2D" parent="."]
-position = Vector2(568, 1000)
+position = Vector2(568, 1004)
 script = ExtResource("2_saw52")
 metadata/_edit_group_ = true
 
