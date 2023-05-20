@@ -23,4 +23,5 @@ window/stretch/aspect="keep_width"
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.780392, 0.780392, 0.780392, 1)

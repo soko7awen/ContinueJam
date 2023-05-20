@@ -22,6 +22,6 @@ func _physics_process(delta):
 #		velocity.x = direction * SPEED
 #	else:
 #		velocity.x = move_toward(velocity.x, 0, SPEED)
-	position.x = lerp(position.x,get_global_mouse_position().x,.1)
+	# position.x = lerp(position.x,get_global_mouse_position().x,.1)
 
 	move_and_slide()
