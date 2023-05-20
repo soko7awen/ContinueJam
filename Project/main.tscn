@@ -24,99 +24,101 @@ size = Vector2(30, 30)
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1g8sp")
 
-[node name="Image" type="Sprite2D" parent="."]
+[node name="SubViewport" type="Node2D" parent="."]
+
+[node name="Image" type="Sprite2D" parent="SubViewport"]
 visible = false
 position = Vector2(200, 250)
 texture = ExtResource("2_35238")
 
-[node name="Ground" type="ColorRect" parent="."]
+[node name="Ground" type="ColorRect" parent="SubViewport"]
 offset_top = 226.0
 offset_right = 400.0
 offset_bottom = 250.0
 color = Color(0.282353, 0.933333, 0.290196, 1)
 
-[node name="Ground2" type="StaticBody2D" parent="."]
+[node name="Ground2" type="StaticBody2D" parent="SubViewport"]
 position = Vector2(219, 515)
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Ground2"]
 position = Vector2(-19, -27)
 shape = SubResource("RectangleShape2D_02a8h")
 
-[node name="Ground2" type="ColorRect" parent="Ground2"]
+[node name="Ground2" type="ColorRect" parent="SubViewport/Ground2"]
 offset_left = -219.0
 offset_top = -39.0
 offset_right = 181.0
 offset_bottom = -15.0
 color = Color(0.282353, 0.933333, 0.290196, 1)
 
-[node name="Wall1" type="StaticBody2D" parent="."]
+[node name="Wall1" type="StaticBody2D" parent="SubViewport"]
 position = Vector2(-36, 250)
 rotation = -1.5708
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Wall1"]
 position = Vector2(3.05176e-05, 9.53674e-07)
 shape = SubResource("RectangleShape2D_oe3wb")
 
-[node name="Wall2" type="StaticBody2D" parent="."]
+[node name="Wall2" type="StaticBody2D" parent="SubViewport"]
 position = Vector2(436, 250)
 rotation = -1.5708
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Wall2"]
 position = Vector2(0, -3.8147e-06)
 shape = SubResource("RectangleShape2D_oe3wb")
 
-[node name="PlayerOne" type="CharacterBody2D" parent="."]
+[node name="PlayerOne" type="CharacterBody2D" parent="SubViewport"]
 position = Vector2(186, 196)
 script = ExtResource("1_0mrm4")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOne"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerOne"]
 position = Vector2(15, 15)
 shape = SubResource("RectangleShape2D_bd06c")
 
-[node name="ColorRect" type="ColorRect" parent="PlayerOne"]
+[node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerOne"]
 offset_right = 30.0
 offset_bottom = 30.0
 
-[node name="PlayerTwo" type="CharacterBody2D" parent="."]
+[node name="PlayerTwo" type="CharacterBody2D" parent="SubViewport"]
 position = Vector2(186, 446)
 script = ExtResource("2_saw52")
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerTwo"]
 position = Vector2(15, 15)
 shape = SubResource("RectangleShape2D_bdqi3")
 
-[node name="Area2D" type="Area2D" parent="PlayerTwo"]
+[node name="Area2D" type="Area2D" parent="SubViewport/PlayerTwo"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTwo/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerTwo/Area2D"]
 position = Vector2(15, 15)
 shape = SubResource("RectangleShape2D_bdqi3")
 
-[node name="ColorRect" type="ColorRect" parent="PlayerTwo"]
+[node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerTwo"]
 offset_right = 30.0
 offset_bottom = 30.0
 
-[node name="MeleeEnemy" type="CharacterBody2D" parent="."]
+[node name="MeleeEnemy" type="CharacterBody2D" parent="SubViewport"]
 position = Vector2(311, -52)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("4_jbvfw")
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="MeleeEnemy"]
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="SubViewport/MeleeEnemy"]
 
-[node name="ColorRect" type="ColorRect" parent="MeleeEnemy"]
+[node name="ColorRect" type="ColorRect" parent="SubViewport/MeleeEnemy"]
 offset_left = -15.0
 offset_top = -15.0
 offset_right = 15.0
@@ -124,5 +126,5 @@ offset_bottom = 15.0
 color = Color(0.717647, 0, 0, 0.713726)
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeEnemy"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/MeleeEnemy"]
 shape = SubResource("RectangleShape2D_rtg0i")
