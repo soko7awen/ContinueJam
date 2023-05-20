@@ -8,6 +8,7 @@ const IFRAMES = 90
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var lives = 3;
 var invincibilityTimer = 0;
+signal game_over
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -30,7 +31,11 @@ func _physics_process(delta):
 	invincibilityTimer -= 1;
 	
 func takeDamage():
-	lives -= 1
+	if lives > 1:
+		lives -= 1
+	else:
+		lives -= 1
+		game_over.emit()
 	invincibilityTimer = IFRAMES
 	var livesUI = $"/root/Main/CanvasLayer/HBoxContainer".get_children()
 	livesUI[lives].frame = 1

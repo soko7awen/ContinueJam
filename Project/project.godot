@@ -21,6 +21,7 @@ window/size/viewport_width=400
 window/size/viewport_height=500
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
+window/defaults/default_clear_color=Color(0, 0, 0, 1)
 
 [input]
 

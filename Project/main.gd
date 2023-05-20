@@ -9,6 +9,9 @@ func _ready():
 func _process(_delta):
 	spawnEnemy()
 
+func _on_game_over():
+	print("game over")
+
 func spawnEnemy():
 	var ene = Enemy.instantiate()
 	$SubViewport.add_child(ene)
