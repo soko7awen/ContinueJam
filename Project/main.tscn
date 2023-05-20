@@ -124,23 +124,27 @@ offset_bottom = 30.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
 offset_right = 40.0
-offset_bottom = 40.0
+grow_vertical = 0
 
 [node name="Heart1" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
 texture_filter = 1
-position = Vector2(14, 488)
+position = Vector2(14, 28)
 texture = ExtResource("6_b4b83")
 hframes = 2
 
 [node name="Heart2" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
 texture_filter = 1
-position = Vector2(40, 488)
+position = Vector2(40, 28)
 texture = ExtResource("6_b4b83")
 hframes = 2
 
 [node name="Heart3" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
 texture_filter = 1
-position = Vector2(66, 488)
+position = Vector2(66, 28)
 texture = ExtResource("6_b4b83")
 hframes = 2

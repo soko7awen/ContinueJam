@@ -15,9 +15,6 @@ func _physics_process(_delta):
 	if(rng.randf_range(0.0, 100.0) <= 0.75):
 		spawnEnemy()
 
-func _on_game_over():
-	print("game over")
-
 func spawnEnemy():
 	var ene = Enemy.instantiate()
 	ene.position = Vector2(rng.randi_range(xMin, xMax), -100)
