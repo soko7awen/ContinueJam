@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmamacjtlmndx"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_6arwj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sekrc"]
+size = Vector2(1160, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
+size = Vector2(40, 40)
+
+[node name="Main" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(579, 517)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_sekrc")
+
+[node name="Ground" type="ColorRect" parent="Ground"]
+offset_left = -580.0
+offset_top = -36.0
+offset_right = 580.0
+offset_bottom = 37.0
+color = Color(0.282353, 0.933333, 0.290196, 1)
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2(577, 1121)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+shape = SubResource("RectangleShape2D_sekrc")
+
+[node name="Ground" type="ColorRect" parent="Ground2"]
+offset_left = -580.0
+offset_top = -78.5
+offset_right = 580.0
+offset_bottom = 78.5
+color = Color(0.282353, 0.933333, 0.290196, 1)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(572, 441)
+script = ExtResource("1_6arwj")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_bd06c")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+offset_right = 40.0
+offset_bottom = 40.0
