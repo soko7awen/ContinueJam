@@ -110,28 +110,28 @@ offset_bottom = 24.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HeartContainer" type="GridContainer" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_left = 4.0
 offset_top = -24.0
-offset_right = 78.0
+offset_right = 84.0
 grow_vertical = 0
+columns = 3
+metadata/_edit_group_ = true
 
-[node name="Heart1" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/HeartContainer"]
 texture_filter = 1
-position = Vector2(14, 12)
+layout_mode = 2
 texture = ExtResource("6_b4b83")
-hframes = 2
 
-[node name="Heart2" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HeartContainer"]
 texture_filter = 1
-position = Vector2(40, 12)
+layout_mode = 2
 texture = ExtResource("6_b4b83")
-hframes = 2
 
-[node name="Heart3" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HeartContainer"]
 texture_filter = 1
-position = Vector2(66, 12)
+layout_mode = 2
 texture = ExtResource("6_b4b83")
-hframes = 2
