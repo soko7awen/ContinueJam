@@ -11,7 +11,7 @@ func _physics_process(_delta):
 			$Sprite2D.flip_h = true
 		elif position.x-mouseCntr<0:
 			$Sprite2D.flip_h = false
-		position.x = clamp(lerp(position.x,mouseCntr,.1),0,get_viewport_rect().size.x)
+		position.x = clamp(lerp(position.x,mouseCntr,.1),0,get_viewport_rect().size.x-24)
 
 		for i in $Area2D.get_overlapping_bodies():
 			if(i.name.contains("Enemy")):
@@ -25,5 +25,8 @@ func _physics_process(_delta):
 			if(i.name.contains("Bullet")):
 				stunTimer = 90
 				$Blink.play("Blink")
+			if(i.name.contains("pu")):
+				i.queue_free()
+				scoreChanged.emit(30)
 	stunTimer -= 1
 	move_and_slide()

@@ -225,3 +225,4 @@ fit_content = true
 visible_characters = 3
 
 [connection signal="scoreChanged" from="SubViewport/PlayerOne" to="." method="_on_score_changed"]
+[connection signal="scoreChanged" from="SubViewport/PlayerTwo" to="." method="_on_score_changed"]

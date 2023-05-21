@@ -54,7 +54,12 @@ func spawnBlock():
 	$SubViewport.add_child(blockInstance)
 	
 func spawnPower():
-	var power = preload("res://death_pu.tscn").instantiate()
+	var number = RandomNumberGenerator.new().randi_range(1, 2)
+	var power
+	if(number == 1):
+		power = preload("res://death_pu.tscn").instantiate()
+	else:
+		power = preload("res://attack_pu.tscn").instantiate()
 	power.position = Vector2(rng.randi_range(xMin, xMax), -100)
 	$SubViewport.add_child(power)
 	

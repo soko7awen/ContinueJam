@@ -8,6 +8,9 @@ const IFRAMES = 90
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var lives = 3;
 var invincibilityTimer = 0;
+var attackTimer = 0;
+
+signal scoreChanged(score)
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -27,13 +30,26 @@ func _physics_process(delta):
 		$Sprite2D.flip_h = false
 	
 	for i in $Area2D.get_overlapping_bodies():
-		if(i.name.contains("Enemy") && invincibilityTimer <= 0):
+		if(attackTimer >= 0):
+			if(i.name.contains("Enemy")):
+					i.queue_free()
+					scoreChanged.emit(5)
+		elif(i.name.contains("Enemy") && invincibilityTimer <= 0):
 			takeDamage()
-		elif invincibilityTimer == 0:
+		if invincibilityTimer == 0:
 			$Blink.play("RESET")
-		
+		if(i.name.contains("death")):
+			for j in get_parent().get_children():
+				if(j.name.contains("Enemy")):
+					j.queue_free()
+					scoreChanged.emit(2)
+			i.queue_free()
+		if(i.name.contains("attack")):
+			i.queue_free()
+			attackTimer = 420
 	move_and_slide()
-	invincibilityTimer -= 1;
+	invincibilityTimer -= 1
+	attackTimer -= 1
 	
 func takeDamage():
 	if lives > 1:
