@@ -12,7 +12,7 @@ var jumpTimer = RandomNumberGenerator.new().randf_range(100, 200)
 func _ready():
 	pass
 
-func _process(delta):
+func _physics_process(delta):
 	if position.y > get_viewport_rect().size.y*.75:
 		set_collision_mask_value(2,true)
 	if position.y > get_viewport_rect().size.y*.75:

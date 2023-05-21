@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	pass
 
-func _process(delta):
+func _physics_process(delta):
 	if position.y > get_viewport_rect().size.y*.75:
 		set_collision_mask_value(2,true)
 	if(isFalling):
