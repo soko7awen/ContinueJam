@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://yjraewq2smb6"]
+[gd_scene load_steps=4 format=3 uid="uid://yjraewq2smb6"]
 
 [ext_resource type="Script" path="res://RockEnemy.gd" id="1_kh6l1"]
+[ext_resource type="Texture2D" uid="uid://h2byw1tl6mae" path="res://assets/rock.png" id="2_ystxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtg0i"]
-size = Vector2(30, 31)
+size = Vector2(30, 30)
 
 [node name="MeleeEnemy" type="CharacterBody2D"]
 position = Vector2(15, 15)
@@ -11,7 +12,9 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_kh6l1")
 
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ystxq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -15.0

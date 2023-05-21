@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=21 format=3 uid="uid://c86imhsyfksfd"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="2_saw52"]
 [ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_t8cum"]
 [ext_resource type="AudioStream" uid="uid://dw8vc3i2tss2e" path="res://assets/song.wav" id="2_ubk4b"]
+[ext_resource type="Texture2D" uid="uid://bul7ub2o6f2cq" path="res://assets/blocks.png" id="5_63d6u"]
 [ext_resource type="Texture2D" uid="uid://d2w2dkumf4y4" path="res://assets/playerOne.png" id="5_dt7dr"]
 [ext_resource type="Texture2D" uid="uid://puxxnpydokf7" path="res://assets/heart.png" id="6_b4b83"]
 [ext_resource type="Texture2D" uid="uid://p3dka2xaisah" path="res://assets/playerTwo.png" id="6_qvvle"]
@@ -15,6 +16,26 @@ size = Vector2(400, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe3wb"]
 size = Vector2(500, 71.7496)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v65ox"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
+size = Vector2(24, 5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afp03"]
+texture = ExtResource("5_63d6u")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
+
+[sub_resource type="TileSet" id="TileSet_y22b4"]
+tile_size = Vector2i(24, 24)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_afp03")
 
 [sub_resource type="Animation" id="Animation_qydyd"]
 resource_name = "Blink"
@@ -65,6 +86,7 @@ size = Vector2(24, 24)
 
 [node name="Main" type="Node2D"]
 position = Vector2(0, -1)
+texture_filter = 1
 script = ExtResource("1_1g8sp")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -74,18 +96,17 @@ autoplay = true
 [node name="SubViewport" type="Node2D" parent="."]
 
 [node name="Image" type="Sprite2D" parent="SubViewport"]
-texture_filter = 1
 position = Vector2(200, 250)
 texture = ExtResource("2_t8cum")
 
 [node name="Ground" type="StaticBody2D" parent="SubViewport"]
-position = Vector2(219, 515)
+position = Vector2(200, 491)
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Ground"]
-position = Vector2(-19, -23.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_02a8h")
 
 [node name="Wall1" type="StaticBody2D" parent="SubViewport"]
@@ -131,9 +152,18 @@ position = Vector2(12, 2.5)
 shape = SubResource("RectangleShape2D_bd06c")
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/PlayerOne"]
-texture_filter = 1
 position = Vector2(12, 8)
 texture = ExtResource("5_dt7dr")
+
+[node name="Tiles" type="TileMap" parent="SubViewport"]
+tile_set = SubResource("TileSet_y22b4")
+cell_quadrant_size = 24
+format = 2
+layer_0/tile_data = PackedInt32Array(1245190, 0, 0, 1245189, 0, 0)
+
+[node name="Blocks" type="RigidBody2D" parent="SubViewport"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="PlayerTwo" type="CharacterBody2D" parent="SubViewport"]
 position = Vector2(188, 457)
@@ -158,7 +188,6 @@ position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_bdqi3")
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/PlayerTwo"]
-texture_filter = 1
 position = Vector2(12, 8)
 texture = ExtResource("6_qvvle")
 
@@ -176,17 +205,14 @@ columns = 3
 metadata/_edit_group_ = true
 
 [node name="Heart1" type="TextureRect" parent="CanvasLayer/HeartContainer"]
-texture_filter = 1
 layout_mode = 2
 texture = ExtResource("6_b4b83")
 
 [node name="Heart2" type="TextureRect" parent="CanvasLayer/HeartContainer"]
-texture_filter = 1
 layout_mode = 2
 texture = ExtResource("6_b4b83")
 
 [node name="Heart3" type="TextureRect" parent="CanvasLayer/HeartContainer"]
-texture_filter = 1
 layout_mode = 2
 texture = ExtResource("6_b4b83")
 
