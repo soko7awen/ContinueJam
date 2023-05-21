@@ -21,12 +21,14 @@ func enemyTimer():
 	timer.start()
 
 func spawnEnemy():
-	var number = RandomNumberGenerator.new().randi_range(1, 2)
+	var number = RandomNumberGenerator.new().randi_range(1, 3)
 	var Enemy
 	if(number == 1):
 		Enemy = preload("res://melee_enemy.tscn")
-	else:
+	elif(number == 2):
 		Enemy = preload("res://bouncing_enemy.tscn")
+	else:
+		Enemy = preload("res://flying_enemy.tscn")
 	var ene = Enemy.instantiate()
 	ene.position = Vector2(rng.randi_range(xMin, xMax), -100)
 	$SubViewport.add_child(ene)
