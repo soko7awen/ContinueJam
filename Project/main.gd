@@ -24,7 +24,7 @@ func startTimer():
 
 func spawn():
 	var toSpawn = RandomNumberGenerator.new().randi_range(1, 5)
-	if(uniqueTimer > 0 || toSpawn <= 3):
+	if(uniqueTimer > 0 || toSpawn <= 4):
 		var number = RandomNumberGenerator.new().randi_range(1, 4)
 		var Enemy
 		if(number == 1):
