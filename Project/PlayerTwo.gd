@@ -26,7 +26,7 @@ func _physics_process(delta):
 		if(i.name.contains("Enemy") && invincibilityTimer <= 0):
 			takeDamage()
 		elif invincibilityTimer == 0:
-			$AnimationPlayer.stop()
+			$AnimationPlayer.play("RESET")
 		
 	move_and_slide()
 	invincibilityTimer -= 1;
