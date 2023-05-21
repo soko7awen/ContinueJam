@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://o4qp1s7iu0cb"]
+[gd_scene load_steps=3 format=3 uid="uid://mybv2y310sfb"]
 
 [ext_resource type="Script" path="res://BounceEnemy.gd" id="1_ld5bd"]
 
@@ -6,9 +6,8 @@
 size = Vector2(30, 30)
 
 [node name="BounceEnemy" type="CharacterBody2D"]
-position = Vector2(311, -52)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_ld5bd")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
