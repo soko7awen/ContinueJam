@@ -9,7 +9,7 @@ size = Vector2(48, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iaugy"]
 size = Vector2(48, 24)
 
-[node name="sPiece" type="RigidBody2D"]
+[node name="zPiece" type="StaticBody2D"]
 texture_filter = 1
 collision_layer = 2
 collision_mask = 0
