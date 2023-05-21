@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0ixys3b7u02x"]
+[gd_scene load_steps=4 format=3 uid="uid://d1lmxfvtriokg"]
 
-[ext_resource type="Script" path="res://MeleeEnemy.gd" id="1_057xl"]
+[ext_resource type="Script" path="res://powerup.gd" id="1_222yr"]
 [ext_resource type="Texture2D" uid="uid://52spc8vosvtp" path="res://assets/powerup03.png" id="2_120sf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtg0i"]
@@ -9,12 +9,11 @@ size = Vector2(16, 16)
 [node name="attack_pu" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_057xl")
+script = ExtResource("1_222yr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_120sf")
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -2)
 shape = SubResource("RectangleShape2D_rtg0i")

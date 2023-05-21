@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c86imhsyfksfd"]
+[gd_scene load_steps=19 format=3 uid="uid://c86imhsyfksfd"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://puxxnpydokf7" path="res://assets/heart.png" id="6_b4b83"]
 [ext_resource type="Texture2D" uid="uid://p3dka2xaisah" path="res://assets/playerTwo.png" id="6_qvvle"]
 [ext_resource type="FontFile" uid="uid://b83688hyjv5rk" path="res://assets/ponde___.ttf" id="8_lqlmv"]
+[ext_resource type="PackedScene" uid="uid://bpd2auf314s1w" path="res://death_pu.tscn" id="10_jx6hc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02a8h"]
 size = Vector2(400, 17)
@@ -165,6 +166,7 @@ texture = ExtResource("6_qvvle")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HeartContainer" type="GridContainer" parent="CanvasLayer"]
+texture_filter = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -224,5 +226,7 @@ text = "000"
 fit_content = true
 visible_characters = 3
 
+[node name="death_pu" parent="." instance=ExtResource("10_jx6hc")]
+position = Vector2(237, 466)
+
 [connection signal="scoreChanged" from="SubViewport/PlayerOne" to="." method="_on_score_changed"]
-[connection signal="scoreChanged" from="SubViewport/PlayerTwo" to="." method="_on_score_changed"]
