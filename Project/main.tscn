@@ -1,11 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=16 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="2_saw52"]
 [ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_t8cum"]
+[ext_resource type="AudioStream" uid="uid://dw8vc3i2tss2e" path="res://assets/song.wav" id="2_ubk4b"]
 [ext_resource type="Texture2D" uid="uid://p3dka2xaisah" path="res://assets/playertwo01.png" id="5_4kfyh"]
 [ext_resource type="Texture2D" uid="uid://puxxnpydokf7" path="res://assets/heart.png" id="6_b4b83"]
+[ext_resource type="FontFile" uid="uid://b83688hyjv5rk" path="res://assets/ponde___.ttf" id="8_lqlmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02a8h"]
 size = Vector2(400, 17)
@@ -14,7 +16,7 @@ size = Vector2(400, 17)
 size = Vector2(500, 71.7496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
-size = Vector2(24, 24)
+size = Vector2(24, 5)
 
 [sub_resource type="Animation" id="Animation_qydyd"]
 resource_name = "Blink"
@@ -23,7 +25,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
+tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +40,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
+tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,6 +61,10 @@ size = Vector2(24, 24)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1g8sp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ubk4b")
+autoplay = true
 
 [node name="SubViewport" type="Node2D" parent="."]
 
@@ -100,7 +106,7 @@ position = Vector2(0, -3.8147e-06)
 shape = SubResource("RectangleShape2D_oe3wb")
 
 [node name="PlayerOne" type="CharacterBody2D" parent="SubViewport"]
-position = Vector2(186, 207)
+position = Vector2(186, 210)
 script = ExtResource("1_0mrm4")
 metadata/_edit_group_ = true
 
@@ -113,7 +119,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerOne/Area2D"]
-position = Vector2(12, 12)
+position = Vector2(12, 2.5)
 shape = SubResource("RectangleShape2D_bd06c")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerOne"]
@@ -131,7 +137,7 @@ position = Vector2(188, 457)
 script = ExtResource("2_saw52")
 metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/PlayerTwo"]
+[node name="Blink" type="AnimationPlayer" parent="SubViewport/PlayerTwo"]
 libraries = {
 "": SubResource("AnimationLibrary_06b3a")
 }
@@ -148,7 +154,7 @@ collision_mask = 3
 position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_bdqi3")
 
-[node name="ColorRect" type="Sprite2D" parent="SubViewport/PlayerTwo"]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/PlayerTwo"]
 texture_filter = 1
 position = Vector2(12, 8)
 texture = ExtResource("5_4kfyh")
@@ -180,3 +186,42 @@ texture = ExtResource("6_b4b83")
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("6_b4b83")
+
+[node name="Score" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -120.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="RichTextLabel" parent="CanvasLayer/Score"]
+texture_filter = 1
+layout_mode = 2
+offset_left = -25.0
+offset_top = 99.0
+offset_right = 69.0
+offset_bottom = 119.0
+theme_override_fonts/normal_font = ExtResource("8_lqlmv")
+theme_override_font_sizes/normal_font_size = 19
+text = "Score:"
+fit_content = true
+
+[node name="Count" type="RichTextLabel" parent="CanvasLayer/Score"]
+texture_filter = 1
+layout_mode = 2
+offset_left = 69.0
+offset_top = 99.0
+offset_right = 116.0
+offset_bottom = 119.0
+theme_override_fonts/normal_font = ExtResource("8_lqlmv")
+theme_override_font_sizes/normal_font_size = 19
+text = "000"
+fit_content = true
+visible_characters = 3
+
+[connection signal="scoreChanged" from="SubViewport/PlayerOne" to="." method="_on_score_changed"]

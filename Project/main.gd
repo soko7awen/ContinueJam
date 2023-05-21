@@ -5,6 +5,7 @@ var rng = RandomNumberGenerator.new()
 var xMin
 var xMax
 var timer := Timer.new()
+var score = 0
 
 func _ready():
 	xMin = get_viewport_rect().size.x / 16
@@ -36,3 +37,7 @@ func _input(event):
 	if event.is_action_pressed("death"):
 		for i in 100:
 			spawnEnemy();
+
+func _on_score_changed(s):
+	score += s
+	$CanvasLayer/Score/Count.text = str(score).pad_zeros(3)

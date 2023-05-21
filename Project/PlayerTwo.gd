@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 const IFRAMES = 90
 
@@ -20,13 +20,17 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+		velocity.x = move_toward(velocity.x, 0, SPEED*.1)
+	if direction == -1:
+		$Sprite2D.flip_h = true
+	if direction == 1:
+		$Sprite2D.flip_h = false
+	
 	for i in $Area2D.get_overlapping_bodies():
 		if(i.name.contains("Enemy") && invincibilityTimer <= 0):
 			takeDamage()
 		elif invincibilityTimer == 0:
-			$AnimationPlayer.play("RESET")
+			$Blink.play("RESET")
 		
 	move_and_slide()
 	invincibilityTimer -= 1;
@@ -38,7 +42,7 @@ func takeDamage():
 		lives -= 1
 		get_tree().change_scene_to_file("res://game_over.tscn")
 	invincibilityTimer = IFRAMES
-	$AnimationPlayer.play("Blink")
+	$Blink.play("Blink")
 	var livesUI = $"/root/Main/CanvasLayer/HeartContainer".get_children()
 	livesUI[lives].texture = load("res://assets/heartEmpty.png")
 	
