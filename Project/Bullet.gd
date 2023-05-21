@@ -9,6 +9,6 @@ func _ready():
 
 func _physics_process(delta):
 	velocity.y = fireVelocity
-	if(position.y <= -100):
+	if(position.y <= -get_viewport_rect().size.y):
 		queue_free()
 	move_and_slide()

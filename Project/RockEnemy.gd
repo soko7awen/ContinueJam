@@ -22,7 +22,7 @@ func _physics_process(delta):
 		if(shootTimer <= 0):
 			var Enemy = preload("res://bullet.tscn")
 			var ene = Enemy.instantiate()
-			ene.position = Vector2(position.x, position.y)
+			ene.position = Vector2.ZERO
 			add_child(ene)
 			shootTimer = 300
 			print("fired")
