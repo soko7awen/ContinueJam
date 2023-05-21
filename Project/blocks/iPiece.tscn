@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0eab64iychwb"]
+
+[ext_resource type="Texture2D" uid="uid://bul7ub2o6f2cq" path="res://assets/blocks.png" id="1_gtk32"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rl8hm"]
+size = Vector2(96, 24)
+
+[node name="iPiece" type="RigidBody2D"]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(48, 12)
+shape = SubResource("RectangleShape2D_rl8hm")
+
+[node name="Block" type="Sprite2D" parent="."]
+position = Vector2(12, 12)
+texture = ExtResource("1_gtk32")
+
+[node name="Block2" type="Sprite2D" parent="."]
+position = Vector2(36, 12)
+texture = ExtResource("1_gtk32")
+
+[node name="Block3" type="Sprite2D" parent="."]
+position = Vector2(60, 12)
+texture = ExtResource("1_gtk32")
+
+[node name="Block4" type="Sprite2D" parent="."]
+position = Vector2(84, 12)
+texture = ExtResource("1_gtk32")

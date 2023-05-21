@@ -1,5 +1,6 @@
 extends Node2D
 
+const blockShapes = ["iPiece","oPiece","tPiece","jPiece","lPiece","sPiece","zPiece"]
 var rng = RandomNumberGenerator.new()
 var xMin
 var xMax
@@ -43,10 +44,9 @@ func startBlockTimer():
 	blockTimer.start()
 
 func spawnBlock():
-	var number = RandomNumberGenerator.new().randi_range(0, 6)
-	var blockInstance = load("res://blocks.tscn").instantiate()
+	var num = RandomNumberGenerator.new().randi_range(0, 6)
+	var blockInstance = load("res://blocks/" + blockShapes[num] + ".tscn").instantiate()
 	blockInstance.position = Vector2(rng.randi_range(xMin, xMax), -100)
-	blockInstance.make_blocks(number)
 	$SubViewport.add_child(blockInstance)
 	blockTimer.wait_time = RandomNumberGenerator.new().randf_range(0.2, 1.5)
 	blockTimer.start()

@@ -2,6 +2,7 @@ extends RigidBody2D
 
 #const blockShapesNames = ["iPiece","oPiece","tPiece","jPiece","lPiece","sPiece","zPiece"]
 const blockShapes = [[[1,1,1,1],[0,0,0,0]],[[1,1,0,0],[1,1,0,0]],[[1,1,1,0],[0,1,0,0]],[[1,1,1,0],[0,0,1,0]],[[1,1,1,0],[1,0,0,0]],[[1,1,0,0],[0,1,1,0]],[[0,1,1,0],[1,1,0,0]]]
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	pass

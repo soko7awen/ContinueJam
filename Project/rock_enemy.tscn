@@ -9,20 +9,12 @@ size = Vector2(30, 30)
 [node name="MeleeEnemy" type="CharacterBody2D"]
 position = Vector2(15, 15)
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 script = ExtResource("1_kh6l1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_ystxq")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -15.0
-offset_top = -15.0
-offset_right = 15.0
-offset_bottom = 15.0
-color = Color(0.478431, 0.270588, 0.117647, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rtg0i")
