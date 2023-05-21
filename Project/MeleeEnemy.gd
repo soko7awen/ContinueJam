@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+const fallSpeed = 150
 const speed = 200
 
 var isFalling = true
@@ -11,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	if(isFalling):
-		velocity.y = speed
+		velocity.y = fallSpeed
 		if(is_on_floor()):
 			isFalling = false
 	else:
