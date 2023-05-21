@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c86imhsyfksfd"]
+[gd_scene load_steps=18 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
@@ -112,7 +112,6 @@ shape = SubResource("RectangleShape2D_oe3wb")
 
 [node name="PlayerOne" type="CharacterBody2D" parent="SubViewport"]
 position = Vector2(186, 210)
-collision_mask = 0
 script = ExtResource("1_0mrm4")
 metadata/_edit_group_ = true
 
