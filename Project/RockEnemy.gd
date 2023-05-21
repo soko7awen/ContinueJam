@@ -4,7 +4,8 @@ const fallSpeed = 225
 
 var isFalling = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var shootTimer = 180
+var shootTimer = 300
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	pass
@@ -17,7 +18,14 @@ func _physics_process(delta):
 		if(is_on_floor()):
 			isFalling = false
 	else:
-		velocity.y += gravity * delta;
+		velocity.y += gravity * delta
 		if(shootTimer <= 0):
-			pass
+			var Enemy = preload("res://bullet.tscn")
+			var ene = Enemy.instantiate()
+			ene.position = Vector2(position.x, position.y)
+			add_child(ene)
+			shootTimer = 300
+			print("fired")
+		else:
+			shootTimer -= 1
 	move_and_slide()

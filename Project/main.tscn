@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c86imhsyfksfd"]
+[gd_scene load_steps=18 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
@@ -64,6 +64,7 @@ _data = {
 size = Vector2(24, 24)
 
 [node name="Main" type="Node2D"]
+position = Vector2(0, -1)
 script = ExtResource("1_1g8sp")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

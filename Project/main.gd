@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var rng = RandomNumberGenerator.new()
 var xMin
 var xMax

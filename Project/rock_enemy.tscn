@@ -16,9 +16,8 @@ script = ExtResource("1_kh6l1")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -15.0
 offset_top = -15.0
-offset_right = 5.0
-offset_bottom = 5.0
-scale = Vector2(1.48, 1.52)
+offset_right = 15.0
+offset_bottom = 15.0
 color = Color(0.478431, 0.270588, 0.117647, 1)
 metadata/_edit_use_anchors_ = true
 
