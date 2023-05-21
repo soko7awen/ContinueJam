@@ -15,8 +15,6 @@ func _ready():
 func _physics_process(delta):
 	if position.y > get_viewport_rect().size.y*.75:
 		set_collision_mask_value(2,true)
-	if position.y > get_viewport_rect().size.y*.75:
-		$CollisionShape2D.disabled = false
 	if(isFalling):
 		velocity.y = fallSpeed
 		if(is_on_floor()):

@@ -40,7 +40,7 @@ func spawnEnemy():
 func startBlockTimer():
 	add_child(blockTimer)
 	blockTimer.timeout.connect(spawnBlock)
-	blockTimer.wait_time = 2
+	blockTimer.wait_time = 10
 	blockTimer.start()
 
 func spawnBlock():
