@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=14 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="2_saw52"]
 [ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_t8cum"]
+[ext_resource type="Texture2D" uid="uid://p3dka2xaisah" path="res://assets/playertwo01.png" id="5_4kfyh"]
 [ext_resource type="Texture2D" uid="uid://puxxnpydokf7" path="res://assets/heart.png" id="6_b4b83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02a8h"]
-size = Vector2(400, 24)
+size = Vector2(400, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe3wb"]
 size = Vector2(500, 71.7496)
@@ -73,7 +74,7 @@ collision_mask = 3
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Ground"]
-position = Vector2(-19, -27)
+position = Vector2(-19, -23.5)
 shape = SubResource("RectangleShape2D_02a8h")
 
 [node name="Wall1" type="StaticBody2D" parent="SubViewport"]
@@ -99,7 +100,7 @@ position = Vector2(0, -3.8147e-06)
 shape = SubResource("RectangleShape2D_oe3wb")
 
 [node name="PlayerOne" type="CharacterBody2D" parent="SubViewport"]
-position = Vector2(186, 202)
+position = Vector2(186, 207)
 script = ExtResource("1_0mrm4")
 metadata/_edit_group_ = true
 
@@ -126,7 +127,7 @@ offset_bottom = 5.0
 color = Color(0.313726, 0.631373, 1, 1)
 
 [node name="PlayerTwo" type="CharacterBody2D" parent="SubViewport"]
-position = Vector2(188, 452)
+position = Vector2(188, 457)
 script = ExtResource("2_saw52")
 metadata/_edit_group_ = true
 
@@ -147,9 +148,10 @@ collision_mask = 3
 position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_bdqi3")
 
-[node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerTwo"]
-offset_right = 24.0
-offset_bottom = 24.0
+[node name="ColorRect" type="Sprite2D" parent="SubViewport/PlayerTwo"]
+texture_filter = 1
+position = Vector2(12, 8)
+texture = ExtResource("5_4kfyh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

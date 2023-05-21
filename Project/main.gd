@@ -10,9 +10,6 @@ func _ready():
 	xMin = get_viewport_rect().size.x / 16
 	xMax = get_viewport_rect().size.x - 20
 	enemyTimer()
-
-func _physics_process(_delta):
-	pass
 	
 func enemyTimer():
 	add_child(timer)
@@ -34,3 +31,8 @@ func spawnEnemy():
 	$SubViewport.add_child(ene)
 	timer.wait_time = RandomNumberGenerator.new().randf_range(0.2, 1.5)
 	timer.start()
+	
+func _input(event):
+	if event.is_action_pressed("death"):
+		for i in 100:
+			spawnEnemy();
