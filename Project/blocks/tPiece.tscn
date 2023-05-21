@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://br7hwkcq577s4"]
+[gd_scene load_steps=5 format=3 uid="uid://br7hwkcq577s4"]
 
+[ext_resource type="Script" path="res://blocks/blocks.gd" id="1_8adn6"]
 [ext_resource type="Texture2D" uid="uid://bul7ub2o6f2cq" path="res://assets/blocks.png" id="1_pvisj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl8hm"]
@@ -10,6 +11,9 @@ size = Vector2(24, 24)
 
 [node name="tPiece" type="RigidBody2D"]
 texture_filter = 1
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_8adn6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(36, 12)
