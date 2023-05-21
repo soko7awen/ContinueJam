@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca5if2hskok6t"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_2tty3"]
+[ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_0tf4t"]
+[ext_resource type="FontFile" uid="uid://ba6cxo11xo11s" path="res://assets/Bitmgothic.ttf" id="3_w0p7n"]
+[ext_resource type="FontFile" uid="uid://b83688hyjv5rk" path="res://assets/ponde___.ttf" id="4_v0e6j"]
+
+[node name="TitleScreen" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tty3")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(200, 250)
+texture = ExtResource("2_0tf4t")
+
+[node name="ColorRect" type="ColorRect" parent="Image"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -250.0
+offset_right = -200.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32549, 0.32549, 0.32549, 0.584314)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -114.0
+offset_top = 4.0
+offset_right = 114.0
+offset_bottom = 101.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_w0p7n")
+theme_override_font_sizes/normal_font_size = 48
+text = "Snatching Sorcerers"
+fit_content = true
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -14.0
+offset_right = 112.5
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_v0e6j")
+theme_override_font_sizes/font_size = 19
+text = "Press to Begin"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
