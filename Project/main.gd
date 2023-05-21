@@ -8,10 +8,18 @@ var xMax
 func _ready():
 	xMin = get_viewport_rect().size.x / 16
 	xMax = get_viewport_rect().size.x - 20
+	enemyTimer()
 
 func _physics_process(_delta):
-	if(rng.randf_range(0.0, 100.0) <= 0.75):
-		spawnEnemy()
+	pass
+	
+func enemyTimer():
+	var timer := Timer.new()
+	add_child(timer)
+	timer.wait_time = RandomNumberGenerator.new().randf_range(0.1, 1)
+	timer.start()
+	timer.timeout.connect(spawnEnemy)
+
 
 func spawnEnemy():
 	var ene = Enemy.instantiate()

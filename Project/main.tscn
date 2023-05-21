@@ -13,10 +13,10 @@ size = Vector2(400, 24)
 size = Vector2(500, 71.7496)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
-size = Vector2(30, 30)
+size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqi3"]
-size = Vector2(30, 30)
+size = Vector2(24, 24)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_1g8sp")
@@ -24,32 +24,19 @@ script = ExtResource("1_1g8sp")
 [node name="SubViewport" type="Node2D" parent="."]
 
 [node name="Image" type="Sprite2D" parent="SubViewport"]
-visible = false
+texture_filter = 1
 position = Vector2(200, 250)
 texture = ExtResource("2_t8cum")
 
-[node name="Ground" type="ColorRect" parent="SubViewport"]
-offset_top = 226.0
-offset_right = 400.0
-offset_bottom = 250.0
-color = Color(0.282353, 0.933333, 0.290196, 1)
-
-[node name="Ground2" type="StaticBody2D" parent="SubViewport"]
+[node name="Ground" type="StaticBody2D" parent="SubViewport"]
 position = Vector2(219, 515)
 collision_layer = 3
 collision_mask = 3
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Ground2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Ground"]
 position = Vector2(-19, -27)
 shape = SubResource("RectangleShape2D_02a8h")
-
-[node name="Ground2" type="ColorRect" parent="SubViewport/Ground2"]
-offset_left = -219.0
-offset_top = -39.0
-offset_right = 181.0
-offset_bottom = -15.0
-color = Color(0.282353, 0.933333, 0.290196, 1)
 
 [node name="Wall1" type="StaticBody2D" parent="SubViewport"]
 position = Vector2(-36, 250)
@@ -74,12 +61,12 @@ position = Vector2(0, -3.8147e-06)
 shape = SubResource("RectangleShape2D_oe3wb")
 
 [node name="PlayerOne" type="CharacterBody2D" parent="SubViewport"]
-position = Vector2(186, 196)
+position = Vector2(186, 202)
 script = ExtResource("1_0mrm4")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerOne"]
-position = Vector2(15, 15)
+position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_bd06c")
 
 [node name="Area2D" type="Area2D" parent="SubViewport/PlayerOne"]
@@ -87,26 +74,26 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerOne/Area2D"]
-position = Vector2(15, 15)
-shape = SubResource("RectangleShape2D_bdqi3")
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_bd06c")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerOne"]
-offset_right = 30.0
-offset_bottom = 30.0
+offset_right = 24.0
+offset_bottom = 24.0
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerOne/ColorRect"]
 layout_mode = 0
-offset_right = 30.0
-offset_bottom = 6.0
+offset_right = 24.0
+offset_bottom = 5.0
 color = Color(0.313726, 0.631373, 1, 1)
 
 [node name="PlayerTwo" type="CharacterBody2D" parent="SubViewport"]
-position = Vector2(186, 446)
+position = Vector2(188, 452)
 script = ExtResource("2_saw52")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerTwo"]
-position = Vector2(15, 15)
+position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_bdqi3")
 
 [node name="Area2D" type="Area2D" parent="SubViewport/PlayerTwo"]
@@ -114,12 +101,12 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerTwo/Area2D"]
-position = Vector2(15, 15)
+position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_bdqi3")
 
 [node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerTwo"]
-offset_right = 30.0
-offset_bottom = 30.0
+offset_right = 24.0
+offset_bottom = 24.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -127,24 +114,24 @@ offset_bottom = 30.0
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -40.0
-offset_right = 40.0
+offset_top = -24.0
+offset_right = 78.0
 grow_vertical = 0
 
 [node name="Heart1" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
 texture_filter = 1
-position = Vector2(14, 28)
+position = Vector2(14, 12)
 texture = ExtResource("6_b4b83")
 hframes = 2
 
 [node name="Heart2" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
 texture_filter = 1
-position = Vector2(40, 28)
+position = Vector2(40, 12)
 texture = ExtResource("6_b4b83")
 hframes = 2
 
 [node name="Heart3" type="Sprite2D" parent="CanvasLayer/HBoxContainer"]
 texture_filter = 1
-position = Vector2(66, 28)
+position = Vector2(66, 12)
 texture = ExtResource("6_b4b83")
 hframes = 2
