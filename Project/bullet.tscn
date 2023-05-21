@@ -1618,7 +1618,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 25.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtg0i"]
@@ -1632,13 +1632,16 @@ collision_mask = 0
 script = ExtResource("1_evk3g")
 
 [node name="ColorRect" type="AnimatedSprite2D" parent="."]
-position = Vector2(-13, 1)
+position = Vector2(-13, 0)
 sprite_frames = SubResource("SpriteFrames_0hd71")
+autoplay = "default"
+frame_progress = 0.625975
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="AnimatedSprite2D" parent="."]
 position = Vector2(-13, -11)
 sprite_frames = SubResource("SpriteFrames_0hd71")
+autoplay = "default"
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
