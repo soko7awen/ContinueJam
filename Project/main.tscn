@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=18 format=3 uid="uid://c86imhsyfksfd"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="2_saw52"]
 [ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_t8cum"]
 [ext_resource type="AudioStream" uid="uid://dw8vc3i2tss2e" path="res://assets/song.wav" id="2_ubk4b"]
-[ext_resource type="Texture2D" uid="uid://p3dka2xaisah" path="res://assets/playertwo01.png" id="5_4kfyh"]
+[ext_resource type="Texture2D" uid="uid://d2w2dkumf4y4" path="res://assets/playerOne.png" id="5_dt7dr"]
 [ext_resource type="Texture2D" uid="uid://puxxnpydokf7" path="res://assets/heart.png" id="6_b4b83"]
+[ext_resource type="Texture2D" uid="uid://p3dka2xaisah" path="res://assets/playerTwo.png" id="6_qvvle"]
 [ext_resource type="FontFile" uid="uid://b83688hyjv5rk" path="res://assets/ponde___.ttf" id="8_lqlmv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02a8h"]
@@ -14,6 +15,9 @@ size = Vector2(400, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oe3wb"]
 size = Vector2(500, 71.7496)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v65ox"]
+size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
 size = Vector2(24, 5)
@@ -108,11 +112,10 @@ shape = SubResource("RectangleShape2D_oe3wb")
 [node name="PlayerOne" type="CharacterBody2D" parent="SubViewport"]
 position = Vector2(186, 210)
 script = ExtResource("1_0mrm4")
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/PlayerOne"]
 position = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_bd06c")
+shape = SubResource("RectangleShape2D_v65ox")
 
 [node name="Area2D" type="Area2D" parent="SubViewport/PlayerOne"]
 collision_layer = 3
@@ -122,15 +125,10 @@ collision_mask = 3
 position = Vector2(12, 2.5)
 shape = SubResource("RectangleShape2D_bd06c")
 
-[node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerOne"]
-offset_right = 24.0
-offset_bottom = 24.0
-
-[node name="ColorRect" type="ColorRect" parent="SubViewport/PlayerOne/ColorRect"]
-layout_mode = 0
-offset_right = 24.0
-offset_bottom = 5.0
-color = Color(0.313726, 0.631373, 1, 1)
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport/PlayerOne"]
+texture_filter = 1
+position = Vector2(12, 8)
+texture = ExtResource("5_dt7dr")
 
 [node name="PlayerTwo" type="CharacterBody2D" parent="SubViewport"]
 position = Vector2(188, 457)
@@ -157,7 +155,7 @@ shape = SubResource("RectangleShape2D_bdqi3")
 [node name="Sprite2D" type="Sprite2D" parent="SubViewport/PlayerTwo"]
 texture_filter = 1
 position = Vector2(12, 8)
-texture = ExtResource("5_4kfyh")
+texture = ExtResource("6_qvvle")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -7,7 +7,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 signal scoreChanged(score)
 
 func _physics_process(_delta):
-	position.x = clamp(lerp(position.x,get_global_mouse_position().x - $"ColorRect".get_rect().size.x / 2,.1),0,get_viewport_rect().size.x)
+	var mouseCntr = get_global_mouse_position().x - $"Sprite2D".get_rect().size.x / 2
+	if position.x-mouseCntr>0:
+		$Sprite2D.flip_h = true
+	elif position.x-mouseCntr<0:
+		$Sprite2D.flip_h = false
+	position.x = clamp(lerp(position.x,mouseCntr,.1),0,get_viewport_rect().size.x)
+
 	for i in $Area2D.get_overlapping_bodies():
 		if(i.name.contains("Enemy")):
 			i.queue_free()
