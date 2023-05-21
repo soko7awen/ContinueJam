@@ -25,6 +25,8 @@ func _physics_process(delta):
 	for i in $Area2D.get_overlapping_bodies():
 		if(i.name.contains("Enemy") && invincibilityTimer <= 0):
 			takeDamage()
+		elif invincibilityTimer == 0:
+			$AnimationPlayer.stop()
 		
 	move_and_slide()
 	invincibilityTimer -= 1;
@@ -36,6 +38,7 @@ func takeDamage():
 		lives -= 1
 		get_tree().change_scene_to_file("res://game_over.tscn")
 	invincibilityTimer = IFRAMES
+	$AnimationPlayer.play("Blink")
 	var livesUI = $"/root/Main/CanvasLayer/HeartContainer".get_children()
 	livesUI[lives].texture = load("res://assets/heartEmpty.png")
 	
