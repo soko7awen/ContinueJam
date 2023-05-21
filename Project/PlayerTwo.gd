@@ -36,6 +36,6 @@ func takeDamage():
 		lives -= 1
 		get_tree().change_scene_to_file("res://game_over.tscn")
 	invincibilityTimer = IFRAMES
-	var livesUI = $"/root/Main/CanvasLayer/HBoxContainer".get_children()
-	livesUI[lives].frame = 1
+	var livesUI = $"/root/Main/CanvasLayer/HeartContainer".get_children()
+	livesUI[lives].texture = load("res://assets/heartEmpty.png")
 	
