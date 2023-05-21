@@ -23,7 +23,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	for i in $Area2D.get_overlapping_bodies():
-		if(i.name.contains("MeleeEnemy") && invincibilityTimer <= 0):
+		if(i.name.contains("Enemy") && invincibilityTimer <= 0):
 			takeDamage()
 		
 	move_and_slide()
