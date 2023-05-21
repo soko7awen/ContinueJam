@@ -13,7 +13,7 @@ func _ready():
 	xMax = get_viewport_rect().size.x - 20
 	startTimer()
 	
-func _physics_process(_delta):
+func _physics_process(delta):
 	uniqueTimer -= 1
 	
 func startTimer():
