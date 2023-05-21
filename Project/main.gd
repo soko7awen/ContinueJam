@@ -38,9 +38,9 @@ func spawn():
 		var ene = Enemy.instantiate()
 		ene.position = Vector2(rng.randi_range(xMin, xMax), -100)
 		$SubViewport.add_child(ene)
-	elif(toSpawn == 4):
-		spawnBlock()
-		uniqueTimer = 300
+#	elif(toSpawn == 4):
+#		spawnBlock()
+#		uniqueTimer = 300
 	else:
 		spawnPower()
 		uniqueTimer = 300
@@ -54,7 +54,7 @@ func spawnBlock():
 	$SubViewport.add_child(blockInstance)
 	
 func spawnPower():
-	var power = preload("res://death_pu.tscn").instantiate
+	var power = preload("res://death_pu.tscn").instantiate()
 	power.position = Vector2(rng.randi_range(xMin, xMax), -100)
 	$SubViewport.add_child(power)
 	
