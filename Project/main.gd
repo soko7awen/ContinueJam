@@ -1,6 +1,6 @@
 extends Node2D
 
-var Enemy = preload("res://melee_enemy.tscn")
+
 var rng = RandomNumberGenerator.new()
 var xMin
 var xMax
@@ -21,6 +21,12 @@ func enemyTimer():
 	timer.start()
 
 func spawnEnemy():
+	var number = RandomNumberGenerator.new().randi_range(1, 2)
+	var Enemy
+	if(number == 1):
+		Enemy = preload("res://melee_enemy.tscn")
+	else:
+		Enemy = preload("res://bouncing_enemy.tscn")
 	var ene = Enemy.instantiate()
 	ene.position = Vector2(rng.randi_range(xMin, xMax), -100)
 	$SubViewport.add_child(ene)

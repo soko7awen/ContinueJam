@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const fallSpeed = 150
-const speed = 150
+const fallSpeed = 125
+const speed = 125
 const jumpVelocity = -400
 
 var isFalling = true
@@ -24,6 +24,7 @@ func _process(delta):
 			velocity.x = -speed
 		velocity.y += gravity * delta
 		if(jumpTimer <= 0):
+			jumpTimer = RandomNumberGenerator.new().randf_range(100, 200)
 			velocity.y = jumpVelocity
 		for i in get_slide_collision_count():
 			var collision = get_slide_collision(i)
