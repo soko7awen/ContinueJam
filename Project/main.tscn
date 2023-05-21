@@ -1,11 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://cmamacjtlmndx"]
+[gd_scene load_steps=18 format=3 uid="uid://cmamacjtlmndx"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
 [ext_resource type="Script" path="res://PlayerTwo.gd" id="2_saw52"]
 [ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_t8cum"]
 [ext_resource type="AudioStream" uid="uid://dw8vc3i2tss2e" path="res://assets/song.wav" id="2_ubk4b"]
-[ext_resource type="Texture2D" uid="uid://bul7ub2o6f2cq" path="res://assets/blocks.png" id="5_63d6u"]
 [ext_resource type="Texture2D" uid="uid://g8m350fdtu5k" path="res://assets/playerOne.png" id="5_dt7dr"]
 [ext_resource type="Texture2D" uid="uid://puxxnpydokf7" path="res://assets/heart.png" id="6_b4b83"]
 [ext_resource type="Texture2D" uid="uid://p3dka2xaisah" path="res://assets/playerTwo.png" id="6_qvvle"]
@@ -60,20 +59,6 @@ size = Vector2(24, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bd06c"]
 size = Vector2(24, 5)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afp03"]
-texture = ExtResource("5_63d6u")
-texture_region_size = Vector2i(24, 24)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
-
-[sub_resource type="TileSet" id="TileSet_y22b4"]
-tile_size = Vector2i(24, 24)
-physics_layer_0/collision_layer = 3
-physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_afp03")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdqi3"]
 size = Vector2(24, 24)

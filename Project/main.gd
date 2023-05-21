@@ -4,57 +4,64 @@ const blockShapes = ["iPiece","oPiece","tPiece","jPiece","lPiece","sPiece","zPie
 var rng = RandomNumberGenerator.new()
 var xMin
 var xMax
-var enemyTimer := Timer.new()
-var blockTimer := Timer.new()
+var spawnTimer := Timer.new()
+var uniqueTimer = 300
 var score = 0
 
 func _ready():
 	xMin = get_viewport_rect().size.x / 16
 	xMax = get_viewport_rect().size.x - 20
-	startEnemyTimer()
-	startBlockTimer()
+	startTimer()
 	
-func startEnemyTimer():
-	add_child(enemyTimer)
-	enemyTimer.timeout.connect(spawnEnemy)
-	enemyTimer.wait_time = 2
-	enemyTimer.start()
+func _physics_process(delta):
+	uniqueTimer -= 1
+	
+func startTimer():
+	add_child(spawnTimer)
+	spawnTimer.timeout.connect(spawn)
+	spawnTimer.wait_time = 2
+	spawnTimer.start()
 
-func spawnEnemy():
-	var number = RandomNumberGenerator.new().randi_range(1, 4)
-	var Enemy
-	if(number == 1):
-		Enemy = preload("res://melee_enemy.tscn")
-	elif(number == 2):
-		Enemy = preload("res://bouncing_enemy.tscn")
-	elif(number == 3):
-		Enemy = preload("res://flying_enemy.tscn")
+func spawn():
+	var toSpawn = RandomNumberGenerator.new().randi_range(1, 5)
+	if(uniqueTimer > 0 || toSpawn <= 3):
+		var number = RandomNumberGenerator.new().randi_range(1, 4)
+		var Enemy
+		if(number == 1):
+			Enemy = preload("res://melee_enemy.tscn")
+		elif(number == 2):
+			Enemy = preload("res://bouncing_enemy.tscn")
+		elif(number == 3):
+			Enemy = preload("res://flying_enemy.tscn")
+		else:
+			Enemy = preload("res://rock_enemy.tscn")
+		var ene = Enemy.instantiate()
+		ene.position = Vector2(rng.randi_range(xMin, xMax), -100)
+		$SubViewport.add_child(ene)
+	elif(toSpawn == 4):
+		spawnBlock()
+		uniqueTimer = 300
 	else:
-		Enemy = preload("res://rock_enemy.tscn")
-	var ene = Enemy.instantiate()
-	ene.position = Vector2(rng.randi_range(xMin, xMax), -100)
-	$SubViewport.add_child(ene)
-	enemyTimer.wait_time = RandomNumberGenerator.new().randf_range(0.2, 1.5)
-	enemyTimer.start()
-	
-func startBlockTimer():
-	add_child(blockTimer)
-	blockTimer.timeout.connect(spawnBlock)
-	blockTimer.wait_time = 2
-	blockTimer.start()
+		spawnPower()
+		uniqueTimer = 300
+	spawnTimer.wait_time = RandomNumberGenerator.new().randf_range(0.2, 1.5)
+	spawnTimer.start()
 
 func spawnBlock():
 	var num = RandomNumberGenerator.new().randi_range(0, 6)
 	var blockInstance = load("res://blocks/" + blockShapes[num] + ".tscn").instantiate()
 	blockInstance.position = Vector2(rng.randi_range(xMin, xMax), -100)
 	$SubViewport.add_child(blockInstance)
-	blockTimer.wait_time = RandomNumberGenerator.new().randf_range(0.2, 1.5)
-	blockTimer.start()
+	
+func spawnPower():
+	var power = preload("res://death_pu.tscn").instantiate
+	power.position = Vector2(rng.randi_range(xMin, xMax), -100)
+	$SubViewport.add_child(power)
 	
 func _input(event):
 	if event.is_action_pressed("death"):
 		for i in 100:
-			spawnEnemy();
+			spawn();
 
 func _on_score_changed(s):
 	score += s
