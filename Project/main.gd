@@ -4,19 +4,20 @@ extends Node2D
 var rng = RandomNumberGenerator.new()
 var xMin
 var xMax
-var timer := Timer.new()
+var enemyTimer := Timer.new()
+var blockTimer := Timer.new()
 var score = 0
 
 func _ready():
 	xMin = get_viewport_rect().size.x / 16
 	xMax = get_viewport_rect().size.x - 20
-	enemyTimer()
+	startEnemyTimer()
 	
-func enemyTimer():
-	add_child(timer)
-	timer.timeout.connect(spawnEnemy)
-	timer.wait_time = 2
-	timer.start()
+func startEnemyTimer():
+	add_child(enemyTimer)
+	enemyTimer.timeout.connect(spawnEnemy)
+	enemyTimer.wait_time = 2
+	enemyTimer.start()
 
 func spawnEnemy():
 	var number = RandomNumberGenerator.new().randi_range(1, 4)
@@ -32,8 +33,23 @@ func spawnEnemy():
 	var ene = Enemy.instantiate()
 	ene.position = Vector2(rng.randi_range(xMin, xMax), -100)
 	$SubViewport.add_child(ene)
-	timer.wait_time = RandomNumberGenerator.new().randf_range(0.2, 1.5)
-	timer.start()
+	enemyTimer.wait_time = RandomNumberGenerator.new().randf_range(0.2, 1.5)
+	enemyTimer.start()
+	
+func startBlockTimer():
+	add_child(blockTimer)
+	blockTimer.timeout.connect(spawnBlock)
+	blockTimer.wait_time = 2
+	blockTimer.start()
+
+func spawnBlock():
+	var number = RandomNumberGenerator.new().randi_range(0, 6)
+	var blockShape
+	var blockInstance = load("res://blocks.tscn").instantiate()
+	blockInstance.position = Vector2(rng.randi_range(xMin, xMax), -100)
+	$SubViewport.add_child(blockInstance)
+	blockTimer.wait_time = RandomNumberGenerator.new().randf_range(0.2, 1.5)
+	blockTimer.start()
 	
 func _input(event):
 	if event.is_action_pressed("death"):
