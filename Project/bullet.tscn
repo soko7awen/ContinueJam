@@ -1626,24 +1626,28 @@ size = Vector2(4, 20.5)
 
 [node name="Bullet" type="CharacterBody2D"]
 texture_filter = 1
-position = Vector2(15, 15)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_evk3g")
 
 [node name="ColorRect" type="AnimatedSprite2D" parent="."]
-position = Vector2(-13, 0)
 sprite_frames = SubResource("SpriteFrames_0hd71")
 autoplay = "default"
 frame_progress = 0.625975
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect2" type="AnimatedSprite2D" parent="."]
-position = Vector2(-13, -11)
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_0hd71")
+autoplay = "default"
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_0hd71")
 autoplay = "default"
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-13, -5.25)
+position = Vector2(0, -5.25)
 shape = SubResource("RectangleShape2D_rtg0i")

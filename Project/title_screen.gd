@@ -4,5 +4,7 @@ extends Control
 func _ready():
 	pass
 func _input(event):
-	if event.is_action_type() || event is InputEventKey:
+	if event is InputEventKey:
+		get_tree().change_scene_to_file("res://main.tscn")
+	elif event is InputEventMouseButton && 0<get_global_mouse_position().y && get_global_mouse_position().y<get_viewport_rect().size.y:
 		get_tree().change_scene_to_file("res://main.tscn")
