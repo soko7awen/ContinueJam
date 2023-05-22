@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://cjlhm7jx6vy1h"]
 
-[ext_resource type="Script" path="res://game_over.gd" id="1_2tty3"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_2yh7a"]
 [ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_0tf4t"]
 [ext_resource type="Texture2D" uid="uid://oqdqd2fp35gx" path="res://assets/title.png" id="2_ijbx0"]
 
@@ -104,7 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2tty3")
+script = ExtResource("1_2yh7a")
 
 [node name="Image" type="Sprite2D" parent="."]
 position = Vector2(200, 250)

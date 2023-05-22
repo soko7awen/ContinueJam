@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c86imhsyfksfd"]
+[gd_scene load_steps=19 format=3 uid="uid://c86imhsyfksfd"]
 
 [ext_resource type="Script" path="res://PlayerOne.gd" id="1_0mrm4"]
 [ext_resource type="Script" path="res://main.gd" id="1_1g8sp"]
@@ -48,8 +48,26 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_6rimp"]
+resource_name = "Attack"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 0.352941, 0.352941, 1), Color(1, 1, 0.352941, 1), Color(0.352941, 1, 0.352941, 1), Color(0.352941, 0.352941, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_06b3a"]
 _data = {
+"Attack": SubResource("Animation_6rimp"),
 "Blink": SubResource("Animation_qydyd"),
 "RESET": SubResource("Animation_covwe")
 }
@@ -141,7 +159,7 @@ position = Vector2(188, 457)
 script = ExtResource("2_saw52")
 metadata/_edit_group_ = true
 
-[node name="Blink" type="AnimationPlayer" parent="SubViewport/PlayerTwo"]
+[node name="Anim" type="AnimationPlayer" parent="SubViewport/PlayerTwo"]
 libraries = {
 "": SubResource("AnimationLibrary_06b3a")
 }

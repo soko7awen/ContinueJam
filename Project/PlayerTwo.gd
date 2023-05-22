@@ -36,8 +36,8 @@ func _physics_process(delta):
 					scoreChanged.emit(5)
 		elif(i.name.contains("Enemy") && invincibilityTimer <= 0):
 			takeDamage()
-		if invincibilityTimer == 0:
-			$Blink.play("RESET")
+		if invincibilityTimer == 0 || attackTimer == 0:
+			$Anim.play("RESET")
 		if(i.name.contains("death")):
 			for j in get_parent().get_children():
 				if(j.name.contains("Enemy")):
@@ -46,6 +46,7 @@ func _physics_process(delta):
 			i.queue_free()
 		if(i.name.contains("attack")):
 			i.queue_free()
+			$Anim.play("Attack")
 			attackTimer = 420
 	move_and_slide()
 	invincibilityTimer -= 1
@@ -58,7 +59,7 @@ func takeDamage():
 		lives -= 1
 		get_tree().change_scene_to_file("res://game_over.tscn")
 	invincibilityTimer = IFRAMES
-	$Blink.play("Blink")
+	$Anim.play("Blink")
 	var livesUI = $"/root/Main/CanvasLayer/HeartContainer".get_children()
 	livesUI[lives].texture = load("res://assets/heartEmpty.png")
 	
