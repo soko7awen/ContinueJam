@@ -47,6 +47,7 @@ func _physics_process(delta):
 		if(i.name.contains("attack")):
 			i.queue_free()
 			$Anim.play("Attack")
+			invincibilityTimer = 0
 			attackTimer = 420
 	move_and_slide()
 	invincibilityTimer -= 1
