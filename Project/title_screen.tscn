@@ -1,9 +1,100 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca5if2hskok6t"]
+[gd_scene load_steps=17 format=3 uid="uid://cjlhm7jx6vy1h"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_2tty3"]
 [ext_resource type="Texture2D" uid="uid://dfkt5a3megdxw" path="res://assets/image.png" id="2_0tf4t"]
-[ext_resource type="FontFile" uid="uid://ba6cxo11xo11s" path="res://assets/Bitmgothic.ttf" id="3_w0p7n"]
-[ext_resource type="FontFile" uid="uid://b83688hyjv5rk" path="res://assets/ponde___.ttf" id="4_v0e6j"]
+[ext_resource type="Texture2D" uid="uid://oqdqd2fp35gx" path="res://assets/title.png" id="2_ijbx0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwa6k"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(0, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1b2y"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(400, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et5lm"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(800, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t17r3"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(1200, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65nyx"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(1600, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twnbl"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(2000, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeb38"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(2400, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v511f"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(2800, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk2ql"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(3200, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e32h7"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(3600, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipeop"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(4000, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjier"]
+atlas = ExtResource("2_ijbx0")
+region = Rect2(4400, 0, 400, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_32vyn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwa6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1b2y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et5lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t17r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65nyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twnbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeb38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v511f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yk2ql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e32h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipeop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjier")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="TitleScreen" type="Control"]
 texture_filter = 1
@@ -19,49 +110,8 @@ script = ExtResource("1_2tty3")
 position = Vector2(200, 250)
 texture = ExtResource("2_0tf4t")
 
-[node name="ColorRect" type="ColorRect" parent="Image"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -250.0
-offset_right = -200.0
-offset_bottom = -250.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.32549, 0.32549, 0.32549, 0.584314)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -114.0
-offset_top = 4.0
-offset_right = 114.0
-offset_bottom = 101.0
-grow_horizontal = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_w0p7n")
-theme_override_font_sizes/normal_font_size = 48
-text = "Snatching Sorcerers"
-fit_content = true
-
-[node name="Restart" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -112.5
-offset_top = -14.0
-offset_right = 112.5
-offset_bottom = 14.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_v0e6j")
-theme_override_font_sizes/font_size = 19
-text = "Press to Begin"
-
-[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[node name="Title" type="AnimatedSprite2D" parent="."]
+position = Vector2(200, 250)
+sprite_frames = SubResource("SpriteFrames_32vyn")
+autoplay = "default"
+frame_progress = 0.589796

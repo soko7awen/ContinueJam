@@ -74,7 +74,7 @@ autoplay = true
 
 [node name="SubViewport" type="Node2D" parent="."]
 
-[node name="Image" type="Sprite2D" parent="SubViewport"]
+[node name="Bkg" type="Sprite2D" parent="SubViewport"]
 position = Vector2(200, 250)
 texture = ExtResource("2_t8cum")
 
